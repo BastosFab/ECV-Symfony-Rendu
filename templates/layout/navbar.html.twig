@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <nav class="navbar navbar-expand-lg bg-primary pt-3 pb-3">
+        <div class="container-fluid">
+            <a class="navbar-brand text-white" href="#">TP Symfony</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                <a class="nav-link active text-white" aria-current="page" href="{{ path('app_home') }}">Home</a>
+                </li>
+            </ul>
+            <span class="navbar-text">
+                {% if app.user %}
+                    <div>
+                        <a href="{{ path('app_account') }}" class="text-white text-decoration-none">{{ app.user.firstname }}</a>
+                        <a href="{{ path('app_logout') }}" class="text-white text-decoration-none">Logout</a>
+                    </div>
+                {% else %}
+                    <div>
+                        <a href="{{ path('app_login') }}" class="text-white text-decoration-none">Login</a>
+                        <a href="{{ path('app_register') }}" class="text-white text-decoration-none">Register</a>
+                    </div>
+                {% endif %}
+            </span>
+            </div>
+        </div>
+    </nav>
+{% endblock %}

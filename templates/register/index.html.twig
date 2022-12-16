@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello RegisterController!{% endblock %}
+
+{% block body %}
+<section class="vh-100">
+        <div class="container-fluid h-custom" style="height: calc(100% - 72px);">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-md-9 col-lg-6 col-xl-5">
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+                class="img-fluid" alt="Sample image">
+            </div>
+            <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+                {{form_start(form)}}
+                <!-- Firstname input -->
+                <div class="form-outline mb-4">
+                    {{form_widget(form.firstname, {'attr': {'id': 'form3Example1', 'class': 'form-control form-control-lg'}})}}
+                    <label class="form-label" for="form3Example1">Firstname</label>
+                </div>
+
+                <!-- Email input -->
+                <div class="form-outline mb-4">
+                    {{form_widget(form.lastname, {'attr': {'id': 'form3Example2', 'class': 'form-control form-control-lg'}})}}
+                    <label class="form-label" for="form3Example2">Lastname</label>
+                </div>
+
+                <!-- Email input -->
+                <div class="form-outline mb-4">
+                    {{form_widget(form.email, {'attr': {'id': 'form3Example3', 'class': 'form-control form-control-lg'}})}}
+                    <label class="form-label" for="form3Example3">Email address</label>
+                </div>
+
+                <!-- Password input -->
+                <div class="form-outline mb-3">
+                    {{form_widget(form.password.children['first'], {'attr': {'id': 'form3Example4', 'class': 'form-control form-control-lg'}})}}
+                    <label class="form-label" for="form3Example4">Password</label>
+                </div>
+                <div class="form-outline mb-3">
+                    {{form_widget(form.password.children['second'], {'attr': {'id': 'form3Example5', 'class': 'form-control form-control-lg'}})}}
+                    <label class="form-label" for="form3Example5">Confirm password</label>
+                </div>
+
+                <input type="hidden" name="_csrf_token"
+                value="{{ csrf_token('authenticate') }}"
+                >
+
+                <div class="text-center text-lg-start mt-4 pt-2">
+                    {{form_widget(form.submit, {'attr': {'id': 'form3Example5', 'class': 'btn btn-primary btn-lg', 'style': 'padding-left: 2.5rem; padding-right: 2.5rem;'}})}}
+                    <p class="small fw-bold mt-2 pt-1 mb-0">Have an account? <a href="{{ path('app_login') }}"
+                        class="link-primary">Login</a></p>
+                </div>
+                {{form_end(form)}}
+            </div>
+            </div>
+        </div>
+        <div
+            class="d-flex flex-column text-center text-md-center justify-content-between py-4 px-4 px-xl-5 bg-primary">
+            <!-- Copyright -->
+            <div class="text-white mb-3 mb-md-0">
+            Copyright © 2020. All rights reserved.
+            </div>
+            <!-- Copyright -->
+        </div>
+    </section>
+{% endblock %}
