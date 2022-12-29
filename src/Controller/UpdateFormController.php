@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Form\PasswordFormType;
+use App\Form\UpdateFormType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -17,15 +17,19 @@ class UpdateFormController extends AbstractController
     {
         /** @var User $user */
         $user = $this->getUser();
-        $form = $this->createForm(PasswordFormType::class);
+        $form = $this->createForm(UpdateFormType::class);
 
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){
 
             $newPassword = $form->getData();
 
-            $password = $hasher->hashPassword($newPassword, $newPassword->getPassword());
-            $user->setPassword($password);
+            if( !is_null($newPassword)) {
+                $password = $hasher->hashPassword($newPassword, $newPassword->getPassword());
+                $user->setPassword($password);
+            } else {
+                $user->getPassword();
+            }
 
             $em->persist($user);
 

@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Form\PasswordFormType;
+use App\Form\UpdateFormType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -17,7 +17,7 @@ class AccountController extends AbstractController
     {
        /** @var User $user */
        $user = $this->getUser();
-       $form = $this->createForm(PasswordFormType::class);
+       $form = $this->createForm(UpdateFormType::class);
 
        $form->handleRequest($request);
        if($form->isSubmitted() && $form->isValid()){

@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello UpdateFormController!{% endblock %}
+{% block title %}Hello AddImageController!{% endblock %}
 
 {% block header %}
     {% include 'layout/navbar.html.twig' %}
@@ -13,18 +13,14 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Editing you're account ! ✅</h1>
+    <h1>Editing you're profile picture ! ✅</h1>
 
     <div class='form_container'>
     {{form_start(form)}}
-        <!-- Password input -->
-        <div class="form-outline mb-3">
-            <label class="form-label" for="form3Example4">Password</label>
-            {{form_widget(form.password.children['first'], {'attr': {'id': 'form3Example4', 'class': 'form-control form-control-lg'}})}}
-        </div>
-        <div class="form-outline mb-3">
-            <label class="form-label" for="form3Example5">Confirm password</label>
-            {{form_widget(form.password.children['second'], {'attr': {'id': 'form3Example5', 'class': 'form-control form-control-lg'}})}}
+        <!-- Image input -->
+        <div class="form-outline mb-4">
+            <label for="form3Example3" class="form-label">Upload profile image</label>
+            {{form_widget(form.profileImage, {'attr': {'id': 'form3Example3', 'class': 'form-control form-control-lg'}})}}
         </div>
         
         <div class="text-center text-lg-start mt-4 pt-2">
@@ -33,7 +29,7 @@
     {{form_end(form)}}
     {% if updated %}
         <div class="alert alert-success" role="alert">
-            Mot de passe modifié
+            Image ajoutée
         </div>
     {% endif %}
     </div>

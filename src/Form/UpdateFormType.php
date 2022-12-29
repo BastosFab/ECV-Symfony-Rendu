@@ -10,7 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class PasswordFormType extends AbstractType
+class UpdateFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
@@ -19,11 +19,12 @@ class PasswordFormType extends AbstractType
                 'type' => PasswordType::class,
                 'invalid_message' => 'error',
                 'label' => 'Password',
-                'required' => true,
                 'first_options' => ['label' => 'Update password'],
                 'second_options' => ['label' => 'Confirm password']
             ])
-            ->add('submit', SubmitType::class)
+            ->add('submit', SubmitType::class, [
+                'label' => 'Save'
+            ])
         ;
     }
 
