@@ -13,10 +13,32 @@
 - Ajout de css pour styliser un minimum
 ````
 ---
-## Init project
+## Lancer en local
+
+Cloner le projet
+
+```bash
+  git clone https://link-to-project
 ```
-git clone
+
+Aller dans votre projet
+
+```bash
+  cd my-project
 ```
+
+Install dependencies
+
+```bash
+  composer install
+```
+
+Start server
+
+```bash
+  symfony serve:start
+```
+
 ---
 ## Clonner le .env
 ```
@@ -31,9 +53,3 @@ symfony console make:migration
 ```
 php bin/console doctrine:migrations:migrate
 ````
----
-## Start
-
-```
-symfony serve:start
-```
